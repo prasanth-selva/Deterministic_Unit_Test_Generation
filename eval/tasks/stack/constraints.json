@@ -1,0 +1,1 @@
+{"task_id": "stack", "spec_id": "TGEN-001", "target_module": "targets.stack", "required_function_calls": ["push", "pop", "peek", "is_empty", "size"], "must_cover_raises": ["IndexError"], "min_test_count": 10}

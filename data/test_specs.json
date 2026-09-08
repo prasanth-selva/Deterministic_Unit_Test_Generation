@@ -1,0 +1,82 @@
+{
+  "spec_id": "TGEN-SPEC-001",
+  "version": "1.0",
+  "coverage_threshold": 0.80,
+  "tasks": [
+    {
+      "spec_id": "TGEN-001",
+      "task_id": "stack",
+      "target_module": "targets.stack",
+      "target_file": "targets/stack.py",
+      "entry_points": ["Stack"],
+      "constraints": {
+        "required_function_calls": ["push", "pop", "peek", "is_empty", "size"],
+        "must_cover_raises": ["IndexError"],
+        "must_cover_empty": false,
+        "must_cover_base_cases": [],
+        "min_test_count": 10,
+        "forbidden_substrings": ["invented_api", "magic_function"]
+      }
+    },
+    {
+      "spec_id": "TGEN-002",
+      "task_id": "fibonacci",
+      "target_module": "targets.fibonacci",
+      "target_file": "targets/fibonacci.py",
+      "entry_points": ["fibonacci"],
+      "constraints": {
+        "required_function_calls": ["fibonacci"],
+        "must_cover_raises": [],
+        "must_cover_empty": false,
+        "must_cover_base_cases": ["fibonacci(0)", "fibonacci(1)"],
+        "min_test_count": 6,
+        "forbidden_substrings": ["invented_api", "magic_function"]
+      }
+    },
+    {
+      "spec_id": "TGEN-003",
+      "task_id": "flatten",
+      "target_module": "targets.flatten",
+      "target_file": "targets/flatten.py",
+      "entry_points": ["flatten"],
+      "constraints": {
+        "required_function_calls": ["flatten"],
+        "must_cover_raises": [],
+        "must_cover_empty": true,
+        "must_cover_base_cases": ["flatten([])"],
+        "min_test_count": 6,
+        "forbidden_substrings": ["invented_api", "magic_function"]
+      }
+    },
+    {
+      "spec_id": "TGEN-004",
+      "task_id": "binary_tree",
+      "target_module": "targets.binary_tree",
+      "target_file": "targets/binary_tree.py",
+      "entry_points": ["BinarySearchTree", "TreeNode"],
+      "constraints": {
+        "required_function_calls": ["insert", "inorder", "search"],
+        "must_cover_raises": [],
+        "must_cover_empty": false,
+        "must_cover_base_cases": [],
+        "min_test_count": 10,
+        "forbidden_substrings": ["invented_api", "magic_function"]
+      }
+    },
+    {
+      "spec_id": "TGEN-005",
+      "task_id": "text_stats",
+      "target_module": "targets.text_stats",
+      "target_file": "targets/text_stats.py",
+      "entry_points": ["word_count", "char_frequency", "most_common_word", "unique_words"],
+      "constraints": {
+        "required_function_calls": ["word_count", "char_frequency", "most_common_word", "unique_words"],
+        "must_cover_raises": [],
+        "must_cover_empty": true,
+        "must_cover_base_cases": ["word_count(\"\")", "most_common_word(\"\")"],
+        "min_test_count": 10,
+        "forbidden_substrings": ["invented_api", "magic_function"]
+      }
+    }
+  ]
+}

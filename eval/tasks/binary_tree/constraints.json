@@ -1,0 +1,1 @@
+{"task_id": "binary_tree", "spec_id": "TGEN-004", "target_module": "targets.binary_tree", "required_function_calls": ["insert", "inorder", "search"], "min_test_count": 10}

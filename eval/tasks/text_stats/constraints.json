@@ -1,0 +1,1 @@
+{"task_id": "text_stats", "spec_id": "TGEN-005", "target_module": "targets.text_stats", "required_function_calls": ["word_count", "char_frequency", "most_common_word", "unique_words"], "must_cover_empty": true, "must_cover_base_cases": ["word_count(\"\")", "most_common_word(\"\")"], "min_test_count": 10}

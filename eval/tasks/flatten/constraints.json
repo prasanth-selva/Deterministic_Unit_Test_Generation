@@ -1,0 +1,1 @@
+{"task_id": "flatten", "spec_id": "TGEN-003", "target_module": "targets.flatten", "required_function_calls": ["flatten"], "must_cover_empty": true, "must_cover_base_cases": ["flatten([])"], "min_test_count": 6}

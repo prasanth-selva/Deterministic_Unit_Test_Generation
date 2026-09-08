@@ -1,0 +1,1 @@
+{"task_id": "fibonacci", "spec_id": "TGEN-002", "target_module": "targets.fibonacci", "required_function_calls": ["fibonacci"], "must_cover_base_cases": ["fibonacci(0)", "fibonacci(1)"], "min_test_count": 6}

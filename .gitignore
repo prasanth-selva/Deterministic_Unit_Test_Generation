@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.env
+.coverage
+.coverage.*
+tests/generated/test_*.py
+reports/
+eval/results.json
+_nonexistent_*/
+_malformed_*/
+_empty_*/
+_no_tasks_*/
+_completely_*/
+_determinism_*/
