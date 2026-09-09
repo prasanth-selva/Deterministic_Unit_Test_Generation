@@ -13,24 +13,15 @@ else
   PYTHON=python
 fi
 
-if [ ! -d ".venv" ]; then
-  echo "==> Creating virtualenv"
-  "$PYTHON" -m venv .venv
+PY=${PYTHON:-python3}
+if [ -x ".venv/bin/python" ]; then
+  PY=".venv/bin/python"
 fi
 
-if [ -f ".venv/bin/activate" ]; then
-  source .venv/bin/activate
-  PY=python
-elif [ -f ".venv/Scripts/activate" ]; then
-  source .venv/Scripts/activate
-  PY=python
-else
-  PY="$PYTHON"
+if ! "$PY" -c "import pytest_cov" >/dev/null 2>&1; then
+  echo "==> Installing required coverage dependencies"
+  "$PY" -m pip install --quiet -r requirements.txt
 fi
-
-echo "==> Installing dependencies"
-"$PY" -m pip install --quiet --upgrade pip
-"$PY" -m pip install --quiet numpy pytest pytest-cov coverage python-dotenv
 
 echo "==> Writing stub (low-coverage) test files — failing baseline"
 "$PY" prepare_data.py
