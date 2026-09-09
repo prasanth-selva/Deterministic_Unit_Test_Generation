@@ -53,7 +53,9 @@ def t2_multi_source_coverage() -> tuple[bool, str]:
         report = json.load(f)
 
     tasks = report.get("tasks", [])
-    required_fields = {"statement_coverage", "branch_coverage", "test_count"}
+    required_fields = {
+        "statement_coverage", "branch_coverage", "test_count", "all_tests_passed"
+    }
     sources_present: set[str] = set()
     failures: list[str] = []
 
@@ -63,6 +65,8 @@ def t2_multi_source_coverage() -> tuple[bool, str]:
                 sources_present.add(field)
             else:
                 failures.append(f"{entry.get('task_id', '?')}: missing '{field}'")
+        if entry.get("all_tests_passed") is not True:
+            failures.append(f"{entry.get('task_id', '?')}: generated tests did not pass")
 
     if not required_fields.issubset(sources_present):
         missing = required_fields - sources_present
